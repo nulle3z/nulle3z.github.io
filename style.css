@@ -1,8 +1,62 @@
+@media (max-width: 767px) {
+	.markdown-body {
+		padding: 15px;
+	}
+}
+
 body {
 	background-color: black;
+	border: 2px white solid;
+	/* padding: 2%; */
 	color: white;
 }
 
-.main {
-	border: 2px white solid;
+body a {
+	color: cyan;
+	text-decoration: none;
+}
+
+body a:hover {
+	color: lightgreen;
+}
+
+body nav {
+	padding: 2%;
+	border-bottom: 2px white solid;
+}
+
+body nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+}
+
+body nav ul li {
+	margin: 0.2em;
+}
+
+/* 或者使用 text-align 方式 */
+/*
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+}
+*/
+
+body main {
+	border-bottom: 2px white solid;
+	padding: 0.5%;
+}
+
+body footer {
+	padding: 0.5%;
+	text-align: center;
 }

@@ -1,130 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
-	<head>
-		<meta charset="UTF-8">
-		<!-- 视口设置，确保移动端适配 -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Marked + GitHub Markdown CSS 演示</title>
-
-		<!-- 1. 引入 github-markdown-css (暗色主题，更有赛博朋克味道) -->
-		<link rel="stylesheet"
-			href="https://cdn.staticfile.org/github-markdown-css/5.5.1/github-markdown-dark.min.css">
-
-		<!-- 2. 引入 marked 库 (通过 CDN) -->
-		<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-
-		<style>
-			/* 容器基础样式 (沿用官方推荐 + 你问的 767px 适配) */
-			.markdown-body {
-				box-sizing: border-box;
-				min-width: 200px;
-				max-width: 980px;
-				margin: 30px auto;
-				padding: 45px;
-				background: #0d1117;
-				/* GitHub 暗色背景，更酷 */
-				border-radius: 12px;
-				border: 1px solid #30363d;
-			}
-
-			/* 移动端适配 —— 你问的 767px 断点 */
-			@media (max-width: 767px) {
-				.markdown-body {
-					padding: 20px;
-					margin: 15px;
-				}
-			}
-
-			/* 可选的 loading 提示样式 */
-			.loading {
-				color: #8b949e;
-				text-align: center;
-				padding: 20px;
-			}
-
-		</style>
-	</head>
-
-	<body style="background: #0a0c10; margin: 0; padding: 20px;">
-		<!-- 容器：应用 markdown-body 类，用于美化 -->
-		<article class="markdown-body" id="content">
-			<div class="loading">正在加载 Markdown 内容...</div>
-		</article>
-
-		<script>
-			// 3. 准备 Markdown 内容（可以是硬编码的字符串，也可以是从接口获取）
-			const markdownText = `
-# 欢迎使用 Marked + GitHub 样式 👋
-
-这是一个 **Markdown** 转 HTML 的演示。通过 \`marked\` 解析后，再套用 \`github-markdown-css\`，就能获得和 GitHub 一模一样的阅读体验。
-
-## 功能演示
-
-### 1. 列表
-- 无序列表项一
-- 无序列表项二
-  - 嵌套列表
-  - 另一项
-
-1. 有序列表项
-2. 第二项
-
-### 2. 代码块（支持语法高亮，需额外配置）
-\`\`\`javascript
-// 这是一段 JavaScript 代码
-function hello() {
-    console.log("Hello, Cyberpunk 2026!");
-}
-\`\`\`
-
-### 3. 表格
-| 姓名 | 年龄 | 城市     |
-|------|------|----------|
-| 张三 | 25   | 东京     |
-| 李四 | 28   | 夜之城   |
-
-### 4. 引用
-> 这是一个引用块。在赛博朋克的世界里，霓虹灯和雨水永远不会停。
-
-### 5. 任务列表（GFM 语法）
-- [x] 已完成任务
-- [ ] 未完成任务
-- [ ] 需要进一步处理
-
-### 6. 直接写 HTML 也可以（注意 XSS 风险）
-<span style="color: #ff79c6;">粉红色的文字，很有霓虹感 🎮</span>
-
----
-
-> 你现在看到的这个页面，就是 **Marked** 解析后的结果。  
-> 移动端宽度 ≤ 767px 时，内边距会自动减小，阅读更舒适。
-        `;
-
-			// 4. 使用 marked.parse 将 Markdown 转换为 HTML
-			try {
-				// marked.parse 返回 HTML 字符串
-				const htmlContent = marked.parse(markdownText);
-
-				// 5. 把生成的 HTML 插入到容器中
-				document.getElementById('content').innerHTML = htmlContent;
-			} catch (error) {
-				console.error('Markdown 解析失败：', error);
-				document.getElementById('content').innerHTML = '<p style="color: #f85149;">解析 Markdown 时发生错误 😢</p>';
-			}
-
-        // 额外说明：marked 默认开启 GFM（GitHub Flavored Markdown），
-        // 所以表格、任务列表、删除线等都支持。
-        // 如果需要自定义配置（如添加代码高亮），可以这样：
-        // marked.setOptions({
-        //     gfm: true,
-        //     breaks: true,  // 换行符转为 <br>
-        //     highlight: function(code, lang) {
-        //         // 在这里调用 highlight.js 等库
-        //         return code;
-        //     }
-        // });
-		</script>
-	</body>
-
+<html>
+		<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width initial-scale=1">
+				<link rel="stylesheet" href="style.css">
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
+				<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+				<title>Marked.js</title>
+		</head>
+		<body>
+				<div id="$m" class="markdown-body"></div>
+				<textarea id="$t" style="display:none">
+# Hello World
+*Write* `your` **Markdown** here.
+				</textarea>
+				<script>$m.innerHTML = marked.parse($t.value);</script>
+		</body>
 </html>
+

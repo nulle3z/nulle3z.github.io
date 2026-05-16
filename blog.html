@@ -1,20 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <title>Marked.js</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Eason Zhou</title>
+    <script src="./include/marked.min.js"></script>
+    <script src="./include/load-md.js"></script>
+    <link rel="stylesheet" href="./include/common.css">
+    <link rel="stylesheet" href="./include/github-markdown-dark.css">
+    <link rel="icon" type="image/jpeg" href="./images/title.jpeg">
   </head>
   <body>
-    <div id="$m" class="markdown-body"></div>
-    <textarea id="$t" style="display:none">
-      # Hello World
-      *Write* `your` **Markdown** here.
-    </textarea>
-    <script>$m.innerHTML = marked.parse($t.value);</script>
+    <nav class="brick" style="margin-top: 0.8%">
+      <ul>
+        <li><a href="./album.html">ALBUM</a></li>
+        <li><a href="./index.html">INDEX</a></li>
+        <li><a href="https://github.com/nulle3z" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </nav>
+    <div class="brick" style="border-top: none">
+      <section id="blog-main" class="blog-container">
+        <div class="article-list">
+          <a href="./blog/1/index.html" class="article-link">
+            <article class="blog-post">
+              <h3>关于本站</h3>
+              <time>2025年8月13日</time>
+              <p>从春天至初秋 —— 创建仓库至今的磕磕绊绊</p>
+            </article>
+          </a>
+          <hr>
+            <a href="./blog/2/index.html" class="article-link">
+                <article class="blog-post">
+                <h3>不为人知的话语</h3>
+                <time>2025年8月14日</time>
+                <p>所有这些时刻终将在时光中消逝，就像泪水消失在雨中。</p>
+                </article>
+            </a>
+            <hr>
+            <a href="./blog/3/index.html" class="article-link">
+                <article class="blog-post">
+                    <h3>银翼杀手系列观后感以及一系列思考</h3>
+                    <time>2025年8月3日</time>
+                    <p>仿生人会梦见电子羊吗？我们，究竟何以为人？</p>
+                </article>
+            </a>
+            <hr>
+             <a href="./blog/4/index.html" class="article-link">
+                <article class="blog-post">
+                    <h3>涼宮ハルヒの憂鬱系列</h3>
+                    <time>2025年8月3日</time>
+                    <p>（不间断持续更新中）</p>
+                </article>
+            </a>
+            <hr>
+            <a href="./blog/5/index.html" class="article-link">
+                <article class="blog-post">
+                    <h3>太空漫游</h3>
+                    <time>2025年8月17日</time>
+                    <p>查拉图斯特拉如是说</p>
+                </article>
+            </a>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
 

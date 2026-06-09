@@ -1,3 +1,6 @@
 [submodule "nulle3z"]
 	path = nulle3z
 	url = https://github.com/nulle3z/nulle3z.git
+[submodule "blog/nulle3z"]
+	path = blog/nulle3z
+	url = https://v4.gh-proxy.org/https://github.com/nulle3z/nulle3z.git
